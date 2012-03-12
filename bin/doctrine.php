@@ -33,6 +33,7 @@ if (class_exists('Doctrine\DBAL\Migrations\Version')) {
     $em = $locator->get('doctrine_em');
     $db = $em->getConnection();
 
+    $helpers['em'] = new \Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper($em);
     $helpers['db'] = new \Doctrine\DBAL\Tools\Console\Helper\ConnectionHelper($db);
     $helpers['dialog'] = new \Symfony\Component\Console\Helper\DialogHelper();
 
