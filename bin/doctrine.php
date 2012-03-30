@@ -29,6 +29,45 @@ $cli->setCatchExceptions(true);
 
 $helpers = array();
 
+if (class_exists('Doctrine\ODM\MongoDB\Version')) {
+    $helpers['dm'] = new \Doctrine\ODM\MongoDB\Tools\Console\Helper\DocumentManagerHelper($locator->get('doctrine_mongo'));
+    $cli->addCommands(array(
+        new \Doctrine\ODM\MongoDB\Tools\Console\Command\QueryCommand(),
+        new \Doctrine\ODM\MongoDB\Tools\Console\Command\GenerateDocumentsCommand(),
+        new \Doctrine\ODM\MongoDB\Tools\Console\Command\GenerateRepositoriesCommand(),
+        new \Doctrine\ODM\MongoDB\Tools\Console\Command\GenerateProxiesCommand(),
+        new \Doctrine\ODM\MongoDB\Tools\Console\Command\GenerateHydratorsCommand(),
+        new \Doctrine\ODM\MongoDB\Tools\Console\Command\Schema\CreateCommand(),
+        new \Doctrine\ODM\MongoDB\Tools\Console\Command\Schema\DropCommand(),
+    ));
+}
+
+if (class_exists('Doctrine\ORM\Version')) {
+    $helpers['em'] = new \Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper($locator->get('doctrine_em'));
+    $cli->addCommands(array(
+        // DBAL Commands
+        new \Doctrine\DBAL\Tools\Console\Command\RunSqlCommand(),
+        new \Doctrine\DBAL\Tools\Console\Command\ImportCommand(),
+
+        // ORM Commands
+        new \Doctrine\ORM\Tools\Console\Command\ClearCache\MetadataCommand(),
+        new \Doctrine\ORM\Tools\Console\Command\ClearCache\ResultCommand(),
+        new \Doctrine\ORM\Tools\Console\Command\ClearCache\QueryCommand(),
+        new \Doctrine\ORM\Tools\Console\Command\SchemaTool\CreateCommand(),
+        new \Doctrine\ORM\Tools\Console\Command\SchemaTool\UpdateCommand(),
+        new \Doctrine\ORM\Tools\Console\Command\SchemaTool\DropCommand(),
+        new \Doctrine\ORM\Tools\Console\Command\EnsureProductionSettingsCommand(),
+        new \Doctrine\ORM\Tools\Console\Command\ConvertDoctrine1SchemaCommand(),
+        new \Doctrine\ORM\Tools\Console\Command\GenerateRepositoriesCommand(),
+        new \Doctrine\ORM\Tools\Console\Command\GenerateEntitiesCommand(),
+        new \Doctrine\ORM\Tools\Console\Command\GenerateProxiesCommand(),
+        new \Doctrine\ORM\Tools\Console\Command\ConvertMappingCommand(),
+        new \Doctrine\ORM\Tools\Console\Command\RunDqlCommand(),
+        new \Doctrine\ORM\Tools\Console\Command\ValidateSchemaCommand(),
+        new \Doctrine\ORM\Tools\Console\Command\InfoCommand()
+    ));
+}
+
 if (class_exists('Doctrine\DBAL\Migrations\Version')) {
     $em = $locator->get('doctrine_em');
     $db = $em->getConnection();
@@ -58,8 +97,11 @@ if (class_exists('Doctrine\DBAL\Migrations\Version')) {
     }
 }
 
+
+
 $helperSet = isset($helperSet) ? $helperSet : new \Symfony\Component\Console\Helper\HelperSet();
 foreach ($helpers as $name => $helper) {
+
     $helperSet->set($helper, $name);
 }
 $cli->setHelperSet($helperSet);
