@@ -12,8 +12,7 @@ Version: 0.0.5
 2. Add DoctrineMigrationsModule to your `config/application.config.php` file under the modules key.
 
 If you use default `minimum-stability` ( default `minimum-stability: stable`) you need add modify root composer.json
-and add `"doctrine/migrations": "v1.0-ALPHA1"` to `require` section
-
+and add `"doctrine/migrations": "v1.0-ALPHA1"` to `require` section.
 
 ### Manual
 
@@ -23,14 +22,14 @@ Not support!
 
 Change you Application config like this:
 
-return array(
-    ...
-    'doctrine' => array(
-        'migrations' => array(
-            'migrations_table' => 'migrations',
-            'migrations_namespace' => 'Application',
-            'migrations_directory' => 'data/migrations',
+    return array(
+        ...
+        'doctrine' => array(
+            'migrations' => array(
+                'migrations_table' => 'migrations',
+                'migrations_namespace' => 'Application',
+                'migrations_directory' => 'data/migrations',
+            ),
         ),
-    ),
-    ...
-);
+        ...
+    );
