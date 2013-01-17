@@ -20,7 +20,9 @@
         }
     ],
     "require": {
-        "doctrine/migrations": "dev-master"
+        "php": ">=5.3.3",
+        "doctrine/doctrine-module": "0.7.*",
+        "doctrine/migrations": "v1.0-ALPHA1"
     },
     "autoload": {
         "psr-0": {

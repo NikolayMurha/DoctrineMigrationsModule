@@ -1,47 +1,36 @@
-# Welcome to the SmartyModule for Zend Framework 2!
+# Welcome to the DoctrineMigrationsModule for Zend Framework 2!
 
-SmartyModule is a module that integrates the Smarty templating engine with Zend Framework 2.
+DoctrineMigrationsModule add migration commands to DoctrineModule Cli!
 
-Version: 1.0.0
+Version: 0.0.5
 
 ## Istallation
 
 ### Composer
 
-1. Add `"murganikolay/smarty-module": "dev-master"` to your `composer.json` file and run php composer.phar update.
-2. Add SmartyModule to your `config/application.config.php` file under the modules key.
+1. Add `"murganikolay/doctrine-migrations-module": "dev-master"` to your `composer.json` file and run php composer.phar update.
+2. Add DoctrineMigrationsModule to your `config/application.config.php` file under the modules key.
+
+If you use default `minimum-stability` ( default `minimum-stability: stable`) you need add modify root composer.json
+and add `"doctrine/migrations": "v1.0-ALPHA1"` to `require` section
+
 
 ### Manual
 
-1. `git clone https://github.com/MurgaNikolay/SmartyModule.git` in to `vendor` dir
-2. Put Smarty in to `vendor` dir
-3. Setup autoloader for load Smarty.
-3. Add SmartyModule to your `config/application.config.php` file under the modules key.
-
+Not support!
 
 ### Configuration
 
 Change you Application config like this:
-    
+
+return array(
     ...
-    'view_manager' => array(
-        'default_suffix' => 'tpl', // <-- new option for path stack resolver
-        'display_not_found_reason' => true,
-        'display_exceptions'       => true,
-        'doctype'                  => 'HTML5',
-        'not_found_template'       => 'error/404',
-        'exception_template'       => 'error/index',
-        'template_map' => array(
-            'layout/layout'           => __DIR__ . '/../view/layout/layout.tpl',
-            'application/index/index' => __DIR__ . '/../view/application/index/index.tpl',
-            'error/404'               => __DIR__ . '/../view/error/404.tpl',
-            'error/index'             => __DIR__ . '/../view/error/index.tpl',
-        ),
-        'template_path_stack' => array(
-            __DIR__ . '/../view',
+    'doctrine' => array(
+        'migrations' => array(
+            'migrations_table' => 'migrations',
+            'migrations_namespace' => 'Application',
+            'migrations_directory' => 'data/migrations',
         ),
     ),
     ...
-
-
-Aditional info about view manager: [Zend\View](http://framework.zend.com/manual/2.0/en/modules/zend.view.quick-start.html "Zend\View").
+);
