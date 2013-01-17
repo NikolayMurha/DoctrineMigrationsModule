@@ -10,17 +10,12 @@
         }
     ],
     "require": {
-        "doctrine/migrations": "v1.0-ALPHA1"
+        "doctrine/migrations": "dev-master"
     },
     "autoload": {
         "psr-0": {
             "DoctrineMigrationsModule\\": "src/"
         }
     },
-    "bin" :[ "bin/doctrine", "bin/doctrine.php" ],
-    "extra": {
-        "branch-alias": {
-            "1.0.0": "dev-master"
-        }
-    }
+    "bin" :[ "bin/doctrine", "bin/doctrine.php" ]
 }
