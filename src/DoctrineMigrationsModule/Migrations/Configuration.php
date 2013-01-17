@@ -6,7 +6,7 @@
  * Time: 16:05
  * To change this template use File | Settings | File Templates.
  */
-namespace DoctrineMigrationsModule;
+namespace DoctrineMigrationsModule\Migrations;
 
 use Doctrine\DBAL\Migrations\Configuration\Configuration AS Migrations_Configuration;
 

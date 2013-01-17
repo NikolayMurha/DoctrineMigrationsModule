@@ -1,18 +1,26 @@
 <?php
 return array(
-    'di' => array(
-        'instance' => array(
-            'alias' => array(
-                // entity manager
-                'dbal_migrations_config' => 'DoctrineMigrationsModule\Configuration',
-            ),
-            'dbal_migrations_config' => array(
-                'parameters' => array(
-                    'connection' => 'orm_connection',
-                    'migrationsNamespace' => 'DoctrineMigrationsModule',
-                    'migrationsDirectory' => realpath(__DIR__ . '/../../../data/DoctrineMigrationsModule'),
-                )
-            )
-        )
+    'doctrine' => array(
+        'migrations' => array(
+            'connection' => 'doctrine.connection.orm_default',
+            // 'output_writer' => 'doctrine.migrations.output_writer',
+
+            'migrations_table' => 'migrations',
+            'migrations_namespace' => 'Application',
+            'migrations_directory' => __DIR__ . '/../../../data/doctrine/migrations',
+        ),
+    ),
+    'service_manager' => array(
+        'aliases' => array(
+            'DoctrineMigrationsModule\Configuration' => 'doctrine.migrations.configuration',
+        ),
+        /*
+        'invokables' => array(
+            'doctrine.migrations.output_writer'  => 'Doctrine\DBAL\Migrations\OutputWriter',
+        ),
+        */
+        'factories' => array(
+            'doctrine.migrations.configuration'  => 'DoctrineMigrationsModule\Service\ConfigurationFactory',
+        ),
     )
 );
