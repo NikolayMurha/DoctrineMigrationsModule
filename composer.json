@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "doctrine/migrations": "1.*"
+        "doctrine/migrations": "v1.0-ALPHA1"
     },
     "autoload": {
         "psr-0": {
