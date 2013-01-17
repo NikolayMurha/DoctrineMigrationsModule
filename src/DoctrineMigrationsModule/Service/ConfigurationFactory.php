@@ -47,7 +47,7 @@ class ConfigurationFactory implements FactoryInterface
 
         foreach ($config as $key => $value) {
             $setter = 'set' . str_replace(' ', '', ucwords(str_replace('_', ' ', $key)));
-            if (!method_exists($this, $setter)) {
+            if (!method_exists($configuration, $setter)) {
                 continue;
             }
             $configuration->{$setter}($value);

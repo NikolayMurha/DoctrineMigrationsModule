@@ -1,4 +1,10 @@
 <?php
+
+$dataDir = __DIR__ . '/../../../../data';
+if (!is_dir($dataDir)) {
+    $dataDir = __DIR__ . '/../../../data';
+}
+
 return array(
     'doctrine' => array(
         'migrations' => array(
@@ -7,7 +13,7 @@ return array(
 
             'migrations_table' => 'migrations',
             'migrations_namespace' => 'Application',
-            'migrations_directory' => __DIR__ . '/../../../data/doctrine/migrations',
+            'migrations_directory' => $dataDir . '/migrations',
         ),
     ),
     'service_manager' => array(

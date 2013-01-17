@@ -16,6 +16,9 @@ class Configuration extends Migrations_Configuration
 
     public function setMigrationsDirectory($migrationsDirectory)
     {
+        if (file_exists($migrationsDirectory)) {
+            mkdir($migrationsDirectory, 0777, true);
+        }
         parent::setMigrationsDirectory($migrationsDirectory);
         $this->_registerMigrations();
     }
@@ -28,7 +31,6 @@ class Configuration extends Migrations_Configuration
 
     private function _registerMigrations()
     {
-
         if ($this->_isRegistered) {
             return true;
         }
