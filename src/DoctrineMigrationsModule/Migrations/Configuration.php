@@ -19,6 +19,8 @@ class Configuration extends Migrations_Configuration
         if (!file_exists($migrationsDirectory)) {
             mkdir($migrationsDirectory, 0777, true);
         }
+
+        $migrationsDirectory = realpath($migrationsDirectory);
         parent::setMigrationsDirectory($migrationsDirectory);
         $this->_registerMigrations();
     }
