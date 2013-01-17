@@ -1,8 +1,8 @@
-# Welcome to the DoctrineMigrationsModule for Zend Framework 2!
+## Welcome to the DoctrineMigrationsModule for Zend Framework 2!
 
 DoctrineMigrationsModule add migration commands to DoctrineModule Cli!
 
-Version: 0.0.5
+Version: 1.0.0
 
 ## Istallation
 
