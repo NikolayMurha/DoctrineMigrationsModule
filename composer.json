@@ -3,6 +3,7 @@
     "description": "Doctrine migrations module for Zend Framework 2",
     "homepage": "https://github.com/MurgaNikolay/DoctrineMigrationsModule",
     "type": "library",
+    "license": "MIT",
     "keywords": [
         "zf2",
         "zend",
