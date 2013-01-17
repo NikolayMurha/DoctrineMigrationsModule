@@ -1,7 +1,17 @@
 {
     "name": "murganikolay/doctrine-migrations-module",
     "description": "Doctrine migrations module for Zend Framework 2",
+    "homepage": "https://github.com/MurgaNikolay/DoctrineMigrationsModule",
+    "type": "library",
+    "keywords": [
+        "zf2",
+        "zend",
+        "module",
+        "doctrine",
+        "migrations"
+    ],
     "minimum-stability": "dev",
+
     "stability": "dev",
     "authors": [
         {
