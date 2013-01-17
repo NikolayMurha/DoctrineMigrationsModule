@@ -9,34 +9,10 @@
 namespace DoctrineMigrationsModule;
 
 use Doctrine\DBAL\Migrations\Configuration\Configuration AS Migrations_Configuration;
-use DoctrineORMModule\Doctrine\ORM\Connection;
-use Doctrine\DBAL\Migrations\OutputWriter;
 
 class Configuration extends Migrations_Configuration
 {
-
     private $_isRegistered = false;
-
-    public function __construct(Connection $connection, OutputWriter $outputWriter=null)
-    {
-        parent::__construct($connection->getInstance());
-        if ($outputWriter === null) {
-            $outputWriter = new OutputWriter();
-        }
-        $this->outputWriter = $outputWriter;
-
-        /*foreach ($options as $key=>$value) {
-            switch($key) {
-                case 'mirgations_directory':
-                    $this->setMigrationsDirectory($value);
-                    break;
-                case 'migrations_namespace':
-                    $this->setMigrationsNamespace($value);
-                    break;
-            }
-        }*/
-
-    }
 
     public function setMigrationsDirectory($migrationsDirectory)
     {
