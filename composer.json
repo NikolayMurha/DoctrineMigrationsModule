@@ -22,7 +22,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "doctrine/doctrine-module": "0.7.*",
+        "doctrine/doctrine-module": "0.8.0-beta1",
         "doctrine/migrations": "v1.0-ALPHA1"
     },
     "autoload": {
