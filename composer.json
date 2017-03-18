@@ -22,8 +22,8 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "doctrine/doctrine-module": "0.8.0-beta1",
-        "doctrine/migrations": "1.0.*@dev" 
+        "doctrine/doctrine-module": "0.9",
+        "doctrine/migrations": "v1.2.2" 
     },
     "autoload": {
         "psr-0": {
